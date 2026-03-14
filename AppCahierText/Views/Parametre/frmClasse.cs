@@ -1,76 +1,107 @@
-﻿using AppCahierText.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppCahierText.Model;
 
 namespace AppCahierText.Views.Parametre
 {
     public partial class frmClasse : Form
-    {   
-        BdCahierTexteContext db=new BdCahierTexteContext();
-        private void Effacer()
-        {
-               txtlibelle.Text=String.Empty;
-               cbbAnneeAcademique.Text=String.Empty;
-               cbbAnneeAcademique.DataSource= db.AnneesAcademiques.ToList();
-               cbbAnneeAcademique.Text = "LibelleAnneeAcademique";
-               cbbAnneeAcademique.ValueMember = "ValueAnneeAcademique";
-               Dgclasse.DataSource= db.Classes.ToList();
-               txtlibelle.Focus();
-        }
+    {
+        BdCahierTexteContext db = new BdCahierTexteContext();
+        int? idSelectionne = null;
+
         public frmClasse()
         {
             InitializeComponent();
         }
 
-
-        private void btnAdd_TextChanged(object sender, EventArgs e)
-        {
-            Classe c=new Classe();
-            c.AnneeAcademique = txtlibelle.Text ;
-            c.IdAnneeAcademique = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
-            db.Classes.Add(c);
-            db.SaveChanges();
-            Effacer ();
-        }
-
-
-        private void btnM_TextChanged(object sender, EventArgs e)
-        {
-          int? id= int.Parse(DgClasse.CurrentRow.Cells[0].Value.AToString());
-            var c = db.Classes.Find(id);
-            c.AnneeAcademique = txtlibelle.Text;
-            c.IdAnneeAcademique = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
-            db.SaveChanges();
-            Effacer()
-        }
-        private void btnDelete_TextChanged(object sender, EventArgs e)
-        {
-            int? id = int.Parse(DgClasse.currentRow.Cells[0].Value.ToString());
-            var c = db.Classes.Find(id);
-            db.Classes.Remove(c);
-            db.SaveChanges();
-            Effacer();
-        }
-
         private void frmClasse_Load(object sender, EventArgs e)
         {
-            Effacer();
+            ActualiserGrille();
+            ChargerComboAnnee();
         }
 
-        private void btnconnexion_TextChanged(object sender, EventArgs e)
+        private void ChargerComboAnnee()
         {
-            txtlibelle.Text = DgClasse.currentRow.cells[1]Value.ToString();
-            cbbAnneeAcademique.SelectedValue = DgClasse.CurrentRow.Cells[~~]
-
-
+            // Utilisation exacte des noms de votre modèle AnneeAcademique
+            cbbAnneeAcademique.DataSource = db.AnneesAcademiques.ToList();
+            cbbAnneeAcademique.DisplayMember = "LibelleAnneeAcademique";
+            cbbAnneeAcademique.ValueMember = "IdAnneeAcademique";
+            cbbAnneeAcademique.SelectedIndex = -1;
         }
 
+        private void ActualiserGrille()
+        {
+            dgClasse.DataSource = db.Classes.Select(c => new
+            {
+                c.IdClasse,
+                c.LibelleClasse,
+                // Accès à la propriété via la relation de navigation
+                Annee = c.AnneeAcademique.LibelleAnneeAcademique
+            }).ToList();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtlibelle.Text) || cbbAnneeAcademique.SelectedValue == null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs.");
+                return;
+            }
+
+            Classe cl = new Classe
+            {
+                LibelleClasse = txtlibelle.Text,
+                IdAnneeAcademique = (int)cbbAnneeAcademique.SelectedValue
+            };
+
+            db.Classes.Add(cl);
+            db.SaveChanges();
+            ActualiserGrille();
+            Vider();
+        }
+
+        private void dgClasse_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                idSelectionne = (int)dgClasse.Rows[e.RowIndex].Cells[0].Value;
+                var cl = db.Classes.Find(idSelectionne);
+                if (cl != null)
+                {
+                    txtlibelle.Text = cl.LibelleClasse;
+                    cbbAnneeAcademique.SelectedValue = cl.IdAnneeAcademique;
+                }
+            }
+        }
+
+        private void btnM_Click(object sender, EventArgs e)
+        {
+            if (idSelectionne == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une classe dans la grille.");
+                return;
+            }
+
+            var cl = db.Classes.Find(idSelectionne);
+            if (cl != null)
+            {
+                cl.LibelleClasse = txtlibelle.Text;
+                cl.IdAnneeAcademique = (int)cbbAnneeAcademique.SelectedValue;
+
+                db.SaveChanges();
+                ActualiserGrille();
+                Vider();
+                MessageBox.Show("Classe modifiée avec succès !");
+            }
+        }
+
+        private void Vider()
+        {
+            txtlibelle.Clear();
+            cbbAnneeAcademique.SelectedIndex = -1;
+            idSelectionne = null;
+        }
     }
 }
