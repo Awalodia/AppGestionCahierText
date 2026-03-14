@@ -1,6 +1,6 @@
 ﻿using MySql.Data.EntityFramework;
 using System.Data.Entity;
-
+using AppCahierText.Model;
 namespace AppCahierText.Model
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
@@ -10,15 +10,21 @@ namespace AppCahierText.Model
         {
         }
 
-        public DbSet<Matiere> Matieres { get; set; }
+     
         public DbSet<AnneeAcademique> AnneesAcademiques { get; set; }
         public DbSet<Classe> Classes { get; set; }
+        public DbSet<Syllabus> Syllabus { get; set; }
+        public DbSet<DetailsSyllabus> DetailsSyllabus { get; set; }
+        public DbSet<Matiere> Matieres { get; set; }
+
+      
         public DbSet<Utilisateur> Utilisateurs { get; set; }
         public DbSet<Professeur> Professeurs { get; set; }
-        public DbSet<ChefDepartement> ChefsDepartements { get; set; } 
+        public DbSet<ChefDepartement> ChefsDepartements { get; set; }
         public DbSet<ResponsableClasse> ResponsablesClasses { get; set; }
-        public DbSet<Syllabus> Syllabus { get; set; }
+
+  
         public DbSet<CahierTexte> CahierTextes { get; set; }
-        public DbSet<DetailsSyllabus> DetailsSyllabus { get; set; }
+        public DbSet<DetailCahierTexte> DetailCahierTextes { get; set; } 
     }
 }

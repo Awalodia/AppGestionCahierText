@@ -41,7 +41,6 @@ namespace AppCahierText.Views.Parametre
 
         private void ChargerDonnees()
         {
-            // On recrée le contexte pour s'assurer d'avoir les données fraîches
             db = new BdCahierTexteContext();
             dgDetailsSyllabus.DataSource = db.DetailsSyllabus
                 .Include(d => d.Syllabus)

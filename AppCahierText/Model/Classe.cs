@@ -7,7 +7,6 @@ public class Classe
     [Key]
     public int IdClasse { get; set; }
 
-    // Si tu veux un identifiant textuel ou un code spécifique :
     public string IdLibelle { get; set; }
 
     [Required, MaxLength(10)]

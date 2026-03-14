@@ -26,12 +26,10 @@ namespace AppCahierText
                 syllabusToolStripMenuItem.Enabled = false;
                 utilisateurToolStripMenuItem.Visible = false;
                 anneeAcademiqToolStripMenuItem.Enabled = false;
+                securiteToolStripMenuItem.Visible = false;
             }
         }
 
-        /// <summary>
-        /// Ferme toutes les fenêtres enfants (MDI Children) actuellement ouvertes.
-        /// </summary>
         private void FermerEnfants()
         {
             foreach (Form enfant in this.MdiChildren)
@@ -40,14 +38,12 @@ namespace AppCahierText
             }
         }
 
-        // --- GESTION DES CLICS ---
-
         private void seConnecterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             frmConnexion f = new frmConnexion();
             f.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,17 +51,17 @@ namespace AppCahierText
             Application.Exit();
         }
 
-        private void utilisateurToolStripMenuItem_Click(object sender, EventArgs e)
+        private void matiereToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
-            frmUtilisateurs f = new frmUtilisateurs();
+            FermerEnfants();
+            frmMatiere f = new frmMatiere();
             f.MdiParent = this;
             f.Show();
         }
 
         private void anneeAcademiqToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
+            FermerEnfants();
             frmAnneeAcademique f = new frmAnneeAcademique();
             f.MdiParent = this;
             f.Show();
@@ -73,23 +69,30 @@ namespace AppCahierText
 
         private void classeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
+            FermerEnfants();
             frmClasse f = new frmClasse();
             f.MdiParent = this;
             f.Show();
         }
-
-        private void matiereToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cahierTexteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
-            frmMatiere f = new frmMatiere();
+            FermerEnfants();
+            frmCahierTexte f = new frmCahierTexte();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void detailsCahierTexteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FermerEnfants();
+            FrmDetailCahier f = new FrmDetailCahier();
             f.MdiParent = this;
             f.Show();
         }
 
         private void syllabusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
+            FermerEnfants();
             frmSyllabus f = new frmSyllabus();
             f.MdiParent = this;
             f.Show();
@@ -97,15 +100,24 @@ namespace AppCahierText
 
         private void detailsSyllabusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
+            FermerEnfants();
             FrmDetailsSyllabus f = new FrmDetailsSyllabus();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+     
+        private void utilisateurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FermerEnfants();
+            frmUtilisateurs f = new frmUtilisateurs();
             f.MdiParent = this;
             f.Show();
         }
 
         private void responsableDeClasseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FermerEnfants(); // Ferme la fenêtre précédente
+            FermerEnfants();
             FrmResponsableClasse f = new FrmResponsableClasse();
             f.MdiParent = this;
             f.Show();

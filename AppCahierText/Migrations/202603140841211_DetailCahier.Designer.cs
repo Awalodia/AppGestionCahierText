@@ -7,13 +7,13 @@ namespace AppCahierText.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class test : IMigrationMetadata
+    public sealed partial class DetailCahier : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DetailCahier));
         
         string IMigrationMetadata.Id
         {
-            get { return "202603060123115_test"; }
+            get { return "202603140841211_DetailCahier"; }
         }
         
         string IMigrationMetadata.Source

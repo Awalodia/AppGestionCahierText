@@ -24,7 +24,7 @@ namespace AppCahierText.Views.Parametre
 
         private void ChargerComboAnnee()
         {
-            // Utilisation exacte des noms de votre modèle AnneeAcademique
+            
             cbbAnneeAcademique.DataSource = db.AnneesAcademiques.ToList();
             cbbAnneeAcademique.DisplayMember = "LibelleAnneeAcademique";
             cbbAnneeAcademique.ValueMember = "IdAnneeAcademique";
@@ -37,7 +37,7 @@ namespace AppCahierText.Views.Parametre
             {
                 c.IdClasse,
                 c.LibelleClasse,
-                // Accès à la propriété via la relation de navigation
+               
                 Annee = c.AnneeAcademique.LibelleAnneeAcademique
             }).ToList();
         }

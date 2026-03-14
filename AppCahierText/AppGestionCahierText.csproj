@@ -140,17 +140,9 @@
     <Compile Include="frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202603092316571_InitialClean.cs" />
-    <Compile Include="Migrations\202603092316571_InitialClean.Designer.cs">
-      <DependentUpon>202603092316571_InitialClean.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202603121525437_AjoutSyllabus.cs" />
-    <Compile Include="Migrations\202603121525437_AjoutSyllabus.Designer.cs">
-      <DependentUpon>202603121525437_AjoutSyllabus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202603121838219_FixResponsable.cs" />
-    <Compile Include="Migrations\202603121838219_FixResponsable.Designer.cs">
-      <DependentUpon>202603121838219_FixResponsable.cs</DependentUpon>
+    <Compile Include="Migrations\202603140841211_DetailCahier.cs" />
+    <Compile Include="Migrations\202603140841211_DetailCahier.Designer.cs">
+      <DependentUpon>202603140841211_DetailCahier.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AnneeAcademique.cs" />
@@ -158,10 +150,10 @@
     <Compile Include="Model\CahierTexte.cs" />
     <Compile Include="Model\ChefDepartement.cs" />
     <Compile Include="Model\Classe.cs" />
+    <Compile Include="Model\DetailCahierTexte.cs" />
     <Compile Include="Model\DetailsSyllabus.cs" />
     <Compile Include="Model\ListItem.cs" />
     <Compile Include="Model\Matiere.cs" />
-    <Compile Include="Model\PrintMatiere.cs" />
     <Compile Include="Model\Professeur.cs" />
     <Compile Include="Model\ResponsableClasse.cs" />
     <Compile Include="Model\Syllabus.cs" />
@@ -192,11 +184,23 @@
     <Compile Include="Views\Parametre\frmAnneeAcademique.Designer.cs">
       <DependentUpon>frmAnneeAcademique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Parametre\frmCahierTexte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Parametre\frmCahierTexte.Designer.cs">
+      <DependentUpon>frmCahierTexte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Parametre\FrmClasse.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Parametre\FrmClasse.Designer.cs">
       <DependentUpon>FrmClasse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametre\FrmDetailCahier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Parametre\FrmDetailCahier.Designer.cs">
+      <DependentUpon>FrmDetailCahier.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Parametre\FrmDetailsSyllabus.cs">
       <SubType>Form</SubType>
@@ -228,14 +232,8 @@
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202603092316571_InitialClean.resx">
-      <DependentUpon>202603092316571_InitialClean.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202603121525437_AjoutSyllabus.resx">
-      <DependentUpon>202603121525437_AjoutSyllabus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202603121838219_FixResponsable.resx">
-      <DependentUpon>202603121838219_FixResponsable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202603140841211_DetailCahier.resx">
+      <DependentUpon>202603140841211_DetailCahier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -258,8 +256,14 @@
     <EmbeddedResource Include="Views\Parametre\frmAnneeAcademique.resx">
       <DependentUpon>frmAnneeAcademique.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Parametre\frmCahierTexte.resx">
+      <DependentUpon>frmCahierTexte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Parametre\FrmClasse.resx">
       <DependentUpon>FrmClasse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Parametre\FrmDetailCahier.resx">
+      <DependentUpon>FrmDetailCahier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Parametre\FrmDetailsSyllabus.resx">
       <DependentUpon>FrmDetailsSyllabus.cs</DependentUpon>

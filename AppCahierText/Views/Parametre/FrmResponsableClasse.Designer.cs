@@ -13,7 +13,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region
 
         private void InitializeComponent()
         {
@@ -32,9 +32,7 @@
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgResponsableClasse)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgResponsableClasse
-            // 
+           
             this.dgResponsableClasse.AllowUserToAddRows = false;
             this.dgResponsableClasse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgResponsableClasse.Location = new System.Drawing.Point(260, 40);
@@ -44,57 +42,39 @@
             this.dgResponsableClasse.Size = new System.Drawing.Size(580, 400);
             this.dgResponsableClasse.TabIndex = 0;
             this.dgResponsableClasse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgResponsableClasse_CellClick);
-            // 
-            // txtNom
-            // 
+           
             this.txtNom.Location = new System.Drawing.Point(20, 40);
             this.txtNom.Size = new System.Drawing.Size(200, 20);
-            // 
-            // txtPrenom
-            // 
+           
             this.txtPrenom.Location = new System.Drawing.Point(20, 85);
             this.txtPrenom.Size = new System.Drawing.Size(200, 20);
-            // 
-            // txtEmail
-            // 
+             
             this.txtEmail.Location = new System.Drawing.Point(20, 130);
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
-            // 
-            // txtTelephone
-            // 
+          
             this.txtTelephone.Location = new System.Drawing.Point(20, 175);
             this.txtTelephone.Size = new System.Drawing.Size(200, 20);
-            // 
-            // cbbClasse
-            // 
+            
             this.cbbClasse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbClasse.Location = new System.Drawing.Point(20, 225);
             this.cbbClasse.Size = new System.Drawing.Size(200, 21);
-            // 
-            // btnAdd
-            // 
+          
             this.btnAdd.Location = new System.Drawing.Point(20, 270);
             this.btnAdd.Size = new System.Drawing.Size(95, 35);
             this.btnAdd.Text = "Enregistrer";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnM
-            // 
+         
             this.btnM.Location = new System.Drawing.Point(125, 270);
             this.btnM.Size = new System.Drawing.Size(95, 35);
             this.btnM.Text = "Modifier";
             this.btnM.Click += new System.EventHandler(this.btnModifier_Click);
-            // 
-            // Labels
-            // 
+         
             this.label1.Text = "Nom :"; this.label1.Location = new System.Drawing.Point(20, 25);
             this.label2.Text = "Prénom :"; this.label2.Location = new System.Drawing.Point(20, 70);
             this.label3.Text = "Email :"; this.label3.Location = new System.Drawing.Point(20, 115);
             this.label4.Text = "Téléphone :"; this.label4.Location = new System.Drawing.Point(20, 160);
             this.label5.Text = "Classe :"; this.label5.Location = new System.Drawing.Point(20, 210);
-            // 
-            // FrmResponsableClasse
-            // 
+         
             this.ClientSize = new System.Drawing.Size(860, 460);
             this.Controls.AddRange(new System.Windows.Forms.Control[] {
                 this.dgResponsableClasse, this.txtNom, this.txtPrenom, this.txtEmail,

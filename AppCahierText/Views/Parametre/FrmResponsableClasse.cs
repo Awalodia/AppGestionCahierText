@@ -34,11 +34,11 @@ namespace AppCahierText.Views.Parametre
         {
             dgResponsableClasse.DataSource = db.ResponsablesClasses.Select(r => new
             {
-                r.IdResponsable,
-                Nom = r.NomUtilisateur, // Mapping vers NomUtilisateur
-                Prenom = r.PrenomUtilisateur, // Mapping vers PrenomUtilisateur
-                Email = r.EmailUtilisateur, // Mapping vers EmailUtilisateur
-                Telephone = r.TelephoneUtilisateur, // Mapping vers TelephoneUtilisateur
+                r.IdUtilisateur,
+                Nom = r.NomUtilisateur,
+                Prenom = r.PrenomUtilisateur, 
+                Email = r.EmailUtilisateur,
+                Telephone = r.TelephoneUtilisateur, 
                 Classe = r.Classe.LibelleClasse
             }).ToList();
         }
@@ -53,16 +53,16 @@ namespace AppCahierText.Views.Parametre
 
             ResponsableClasse resp = new ResponsableClasse
             {
-                NomUtilisateur = txtNom.Text, // Correction du nom
-                PrenomUtilisateur = txtPrenom.Text, // Correction du nom
-                EmailUtilisateur = txtEmail.Text, // Correction du nom
-                TelephoneUtilisateur = txtTelephone.Text, // Correction du nom
+                NomUtilisateur = txtNom.Text, 
+                PrenomUtilisateur = txtPrenom.Text, 
+                EmailUtilisateur = txtEmail.Text, 
+                TelephoneUtilisateur = txtTelephone.Text, 
                 IdClasse = (int)cbbClasse.SelectedValue,
                 MatriculeResponsable = "RESP-" + DateTime.Now.Ticks.ToString().Substring(0, 5),
-                // Propriétés obligatoires héritées de Utilisateur
+               
                 Profil = "Responsable",
                 IdentifiantUtilisateur = txtEmail.Text,
-                MotDePasse = "123" // À changer plus tard
+                MotDePasse = "123" 
             };
 
             db.ResponsablesClasses.Add(resp);

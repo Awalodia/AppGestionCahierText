@@ -6,16 +6,13 @@ namespace AppCahierText.Shared
 {
     public static class FillListOption
     {
-        /// <summary>
-        /// Remplit la liste des années académiques
-        /// </summary>
+       
         public static List<ListItem> fillAnneeAcademique()
         {
             using (var db = new BdCahierTexteContext())
             {
                 List<ListItem> lalist = new List<ListItem>();
 
-                // Valeur par défaut pour forcer une sélection valide
                 lalist.Add(new ListItem { Value = "0", Text = "Sélectionner une année..." });
 
                 var liste = db.AnneesAcademiques.AsNoTracking().OrderByDescending(a => a.IdAnneeAcademique).ToList();
@@ -31,9 +28,7 @@ namespace AppCahierText.Shared
             }
         }
 
-        /// <summary>
-        /// Remplit la liste des classes
-        /// </summary>
+  
         public static List<ListItem> fillClasse()
         {
             using (var db = new BdCahierTexteContext())
@@ -54,9 +49,7 @@ namespace AppCahierText.Shared
             }
         }
 
-        /// <summary>
-        /// Remplit la liste des responsables (Utilisateurs de type responsable)
-        /// </summary>
+     
         public static List<ListItem> fillEnseignant()
         {
             using (var db = new BdCahierTexteContext())
@@ -64,7 +57,6 @@ namespace AppCahierText.Shared
                 List<ListItem> lalist = new List<ListItem>();
                 lalist.Add(new ListItem { Value = "0", Text = "Sélectionner un enseignant..." });
 
-                // On récupère les responsables enregistrés dans la table ResponsablesClasses
                 var liste = db.ResponsablesClasses.AsNoTracking().OrderBy(r => r.NomUtilisateur).ToList();
                 foreach (var t in liste)
                 {

@@ -346,7 +346,12 @@
           </Textbox>
         </ReportItems>
         <Height>2in</Height>
-        <Style />
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
       </Body>
       <Width>6.5in</Width>
       <Page>

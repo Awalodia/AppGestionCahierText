@@ -13,7 +13,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region
 
         private void InitializeComponent()
         {
@@ -26,9 +26,7 @@
             this.btnM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClasse)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgClasse
-            // 
+          
             this.dgClasse.AllowUserToAddRows = false;
             this.dgClasse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgClasse.Location = new System.Drawing.Point(260, 40);
@@ -38,44 +36,30 @@
             this.dgClasse.Size = new System.Drawing.Size(500, 300);
             this.dgClasse.TabIndex = 0;
             this.dgClasse.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClasse_CellClick);
-            // 
-            // label1
-            // 
+           
             this.label1.Text = "Libellé Classe :";
             this.label1.Location = new System.Drawing.Point(20, 25);
-            // 
-            // txtlibelle
-            // 
+            
             this.txtlibelle.Location = new System.Drawing.Point(20, 45);
             this.txtlibelle.Size = new System.Drawing.Size(200, 20);
-            // 
-            // label2
-            // 
+            
             this.label2.Text = "Année Académique :";
             this.label2.Location = new System.Drawing.Point(20, 85);
-            // 
-            // cbbAnneeAcademique
-            // 
+          
             this.cbbAnneeAcademique.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAnneeAcademique.Location = new System.Drawing.Point(20, 105);
             this.cbbAnneeAcademique.Size = new System.Drawing.Size(200, 21);
-            // 
-            // btnAdd
-            // 
+            
             this.btnAdd.Location = new System.Drawing.Point(20, 150);
             this.btnAdd.Size = new System.Drawing.Size(95, 30);
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnM
-            // 
+          
             this.btnM.Location = new System.Drawing.Point(125, 150);
             this.btnM.Size = new System.Drawing.Size(95, 30);
             this.btnM.Text = "Modifier";
             this.btnM.Click += new System.EventHandler(this.btnM_Click);
-            // 
-            // frmClasse
-            // 
+            
             this.ClientSize = new System.Drawing.Size(780, 360);
             this.Controls.Add(this.dgClasse);
             this.Controls.Add(this.txtlibelle);

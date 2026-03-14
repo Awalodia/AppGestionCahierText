@@ -15,13 +15,12 @@ namespace AppCahierText.Views.Parametre
             InitializeComponent();
         }
 
-        // ─── Chargement ─────────────────────────────────────────────────────────
+     
         private void frmAnneeAcademique_Load(object sender, EventArgs e)
         {
             ChargerDonnees();
         }
 
-        // ─── Ajouter ────────────────────────────────────────────────────────────
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (!ValiderChamps()) return;
@@ -61,7 +60,6 @@ namespace AppCahierText.Views.Parametre
             }
         }
 
-        // ─── Modifier ────────────────────────────────────────────────────────────
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (dgAnneeAcademique.SelectedRows.Count == 0)
@@ -101,7 +99,6 @@ namespace AppCahierText.Views.Parametre
             }
         }
 
-        // ─── Supprimer ───────────────────────────────────────────────────────────
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             if (dgAnneeAcademique.SelectedRows.Count == 0)
@@ -137,13 +134,11 @@ namespace AppCahierText.Views.Parametre
             }
         }
 
-        // ─── Effacer ─────────────────────────────────────────────────────────────
         private void btnEffacer_Click(object sender, EventArgs e)
         {
             Effacer();
         }
 
-        // ─── Sélection dans le DataGridView ──────────────────────────────────────
         private void dgAnneeAcademique_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -153,7 +148,6 @@ namespace AppCahierText.Views.Parametre
             txtValeur.Text = row.Cells["ValueAnneAcademique"].Value?.ToString();
         }
 
-        // ─── Helpers ─────────────────────────────────────────────────────────────
         private void ChargerDonnees()
         {
             dgAnneeAcademique.DataSource = db.AnneesAcademiques.ToList();

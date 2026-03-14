@@ -6,18 +6,15 @@ namespace AppCahierText.Shared
 {
     public static class Logger
     {
-        // On définit le chemin du fichier log
         private static readonly string logPath;
 
         static Logger()
         {
             try
             {
-                // Récupération du dossier depuis App.config ou dossier par défaut "Logs"
                 string folder = ConfigurationManager.AppSettings["ErrorFolder"] ??
                                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
 
-                // Création du dossier s'il n'existe pas
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
@@ -27,7 +24,6 @@ namespace AppCahierText.Shared
             }
             catch
             {
-                // Backup au cas où le dossier configurer est inaccessible
                 logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error.log");
             }
         }
@@ -44,7 +40,6 @@ namespace AppCahierText.Shared
             Ecrire("ERROR", detail);
         }
 
-        // Pour compatibilité avec ton code existant dans frmClasse
         public static void WriteFileError(string message, string contexte = "")
         {
             string msg = string.IsNullOrWhiteSpace(contexte) ? message : $"[{contexte}] {message}";
@@ -55,10 +50,8 @@ namespace AppCahierText.Shared
         {
             try
             {
-                // Format : [2026-03-09 08:30:00] [ERROR] Message d'erreur
                 string ligne = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [{niveau}] {message}";
 
-                // On utilise Lock pour éviter les conflits si deux erreurs arrivent en même temps
                 lock (logPath)
                 {
                     File.AppendAllText(logPath, ligne + Environment.NewLine);
@@ -66,7 +59,7 @@ namespace AppCahierText.Shared
             }
             catch
             {
-                // Un logger ne doit jamais faire planter l'application principale
+                
             }
         }
     }

@@ -2,14 +2,10 @@
 {
     partial class frmAnneeAcademique
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+     
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+    
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -20,12 +16,9 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+       
         private void InitializeComponent()
         {
             this.dgAnneeAcademique = new System.Windows.Forms.DataGridView();
@@ -40,9 +33,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgAnneeAcademique)).BeginInit();
             this.SuspendLayout();
 
-            // 
-            // lblLibelle
-            // 
+           
             this.lblLibelle.AutoSize = true;
             this.lblLibelle.Location = new System.Drawing.Point(18, 20);
             this.lblLibelle.Name = "lblLibelle";
@@ -50,18 +41,14 @@
             this.lblLibelle.TabIndex = 0;
             this.lblLibelle.Text = "Libellé";
 
-            // 
-            // txtLibelle
-            // 
+           
             this.txtLibelle.Location = new System.Drawing.Point(18, 40);
             this.txtLibelle.Name = "txtLibelle";
             this.txtLibelle.Size = new System.Drawing.Size(200, 20);
             this.txtLibelle.TabIndex = 1;
             this.txtLibelle.MaxLength = 10;
 
-            // 
-            // lblValeur
-            // 
+           
             this.lblValeur.AutoSize = true;
             this.lblValeur.Location = new System.Drawing.Point(18, 75);
             this.lblValeur.Name = "lblValeur";
@@ -69,9 +56,7 @@
             this.lblValeur.TabIndex = 2;
             this.lblValeur.Text = "Valeur année";
 
-            // 
-            // txtValeur
-            // 
+           
             this.txtValeur.Location = new System.Drawing.Point(18, 95);
             this.txtValeur.Name = "txtValeur";
             this.txtValeur.Size = new System.Drawing.Size(200, 20);
@@ -79,9 +64,7 @@
             this.txtValeur.MaxLength = 4;
             this.txtValeur.Text = System.DateTime.Now.Year.ToString();
 
-            // 
-            // btnAjouter
-            // 
+           
             this.btnAjouter.Location = new System.Drawing.Point(18, 135);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(200, 30);
@@ -90,9 +73,7 @@
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
 
-            // 
-            // btnModifier
-            // 
+          
             this.btnModifier.Location = new System.Drawing.Point(18, 175);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(200, 30);
@@ -101,9 +82,7 @@
             this.btnModifier.UseVisualStyleBackColor = true;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
 
-            // 
-            // btnSupprimer
-            // 
+           
             this.btnSupprimer.Location = new System.Drawing.Point(18, 215);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(200, 30);
@@ -112,9 +91,7 @@
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
 
-            // 
-            // btnEffacer
-            // 
+            
             this.btnEffacer.Location = new System.Drawing.Point(18, 255);
             this.btnEffacer.Name = "btnEffacer";
             this.btnEffacer.Size = new System.Drawing.Size(200, 30);
@@ -123,9 +100,7 @@
             this.btnEffacer.UseVisualStyleBackColor = true;
             this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
 
-            // 
-            // dgAnneeAcademique
-            // 
+         
             this.dgAnneeAcademique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAnneeAcademique.Location = new System.Drawing.Point(240, 20);
             this.dgAnneeAcademique.Name = "dgAnneeAcademique";
@@ -137,9 +112,7 @@
             this.dgAnneeAcademique.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgAnneeAcademique.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAnneeAcademique_CellClick);
 
-            // 
-            // frmAnneeAcademique
-            // 
+          
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);

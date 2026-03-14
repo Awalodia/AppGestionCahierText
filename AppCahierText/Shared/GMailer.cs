@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Net;
 using System.Net.Mail;
-using AppCahierText.Shared; // Pour utiliser le Logger
+using AppCahierText.Shared; 
 
 namespace AppCahierText.Shared
 {
     public class GMailer
     {
-        // ─── Configuration globale (Static) ────────────────────
+     
         public static string GmailUser { get; set; } = "votre.email@gmail.com";
         public static string GmailPassword { get; set; } = "votre_mot_de_passe_application";
         public static string GmailHost { get; set; } = "smtp.gmail.com";
         public static int GmailPort { get; set; } = 587;
         public static bool GmailSSL { get; set; } = true;
 
-        // ─── Paramètres du message (Instance) ───────────────────
+      
         public string ToEmail { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
         public bool IsHtml { get; set; } = false;
 
-        // ─── Envoyer le message ───────────────────────────────────
         public void Send()
         {
             if (string.IsNullOrWhiteSpace(GmailUser) || string.IsNullOrWhiteSpace(GmailPassword))
@@ -46,7 +45,6 @@ namespace AppCahierText.Shared
                         smtp.Credentials = new NetworkCredential(GmailUser, GmailPassword);
                         smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                        // Timeout de 10 secondes pour ne pas bloquer l'application
                         smtp.Timeout = 10000;
 
                         smtp.Send(mail);
@@ -56,11 +54,11 @@ namespace AppCahierText.Shared
             catch (Exception ex)
             {
                 Logger.Erreur($"Échec de l'envoi d'email à {ToEmail}", ex);
-                throw; // On relance l'erreur pour informer l'interface utilisateur
+                throw; 
             }
         }
 
-        // ─── Méthode Statique pour envoi rapide ───────────────────────────────
+       
         public static void EnvoyerMotDePasse(string destinataire, string nomUtilisateur, string nouveauMotDePasse)
         {
             GMailer mailer = new GMailer

@@ -21,12 +21,10 @@ namespace AppCahierText.Model
         [MaxLength(80)]
         public string Niveau { get; set; }
 
-        // --- Début de la liaison avec Syllabus ---
         public int? SyllabusId { get; set; }
 
         [ForeignKey("SyllabusId")]
         public virtual Syllabus Syllabus { get; set; }
-        // --- Fin de la liaison ---
 
         public Matiere() { }
     }
